@@ -1,6 +1,7 @@
 
 package com.example.gearloop;
 
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
@@ -27,40 +28,42 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
         setContentView(R.layout.activity_main);
 
         getWindow().setStatusBarColor(0xFFF7FAFF);
         getWindow().setNavigationBarColor(0xFFF7FAFF);
+
         getWindow().getDecorView().setSystemUiVisibility(
                 View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR |
                         View.SYSTEM_UI_FLAG_LIGHT_NAVIGATION_BAR
         );
 
-        // Connect XML views
+        // Connect XML with Java
         cardCustomer = findViewById(R.id.cardCustomer);
         cardOwner = findViewById(R.id.cardOwner);
 
-        txtCustomerStatus = findViewById(R.id.txtCustomerStatus);
-        txtOwnerStatus = findViewById(R.id.txtOwnerStatus);
-        txtSignIn = findViewById(R.id.txtSignIn);
+        txtCustomerStatus =
+                findViewById(R.id.txtCustomerStatus);
 
+        txtOwnerStatus =
+                findViewById(R.id.txtOwnerStatus);
+
+        txtSignIn = findViewById(R.id.txtSignIn);
         btnContinue = findViewById(R.id.btnContinue);
 
-        // No role selected initially
+        // Initially no role is selected
         btnContinue.setEnabled(false);
+        btnContinue.setAlpha(0.5f);
 
-        // Customer card click
-        cardCustomer.setOnClickListener(v -> {
-            selectRole("Customer");
-        });
+        cardCustomer.setOnClickListener(v ->
+                selectRole("Customer")
+        );
 
-        // Owner card click
-        cardOwner.setOnClickListener(v -> {
-            selectRole("Owner");
-        });
+        cardOwner.setOnClickListener(v ->
+                selectRole("Owner")
+        );
 
-        // Continue button click
+        // Continue to registration
         btnContinue.setOnClickListener(v -> {
 
             if (selectedRole.isEmpty()) {
@@ -73,27 +76,31 @@ public class MainActivity extends AppCompatActivity {
             }
 
             SharedPreferences preferences =
-                    getSharedPreferences("GearLoopPrefs", MODE_PRIVATE);
+                    getSharedPreferences(
+                            "GearLoopPrefs",
+                            MODE_PRIVATE
+                    );
 
             preferences.edit()
                     .putString("selectedRole", selectedRole)
                     .apply();
 
-            Toast.makeText(
+            Intent intent = new Intent(
                     MainActivity.this,
-                    selectedRole + " selected. Registration is coming next.",
-                    Toast.LENGTH_LONG
-            ).show();
+                    RegisterActivity.class
+            );
+
+            startActivity(intent);
         });
 
-        // Existing account link
-        txtSignIn.setOnClickListener(v -> {
-            Toast.makeText(
-                    MainActivity.this,
-                    "Login screen will be added next.",
-                    Toast.LENGTH_SHORT
-            ).show();
-        });
+        // Login comes next
+        txtSignIn.setOnClickListener(v ->
+                Toast.makeText(
+                        MainActivity.this,
+                        "Login screen will be added next.",
+                        Toast.LENGTH_SHORT
+                ).show()
+        );
     }
 
     private void selectRole(String role) {
@@ -102,7 +109,6 @@ public class MainActivity extends AppCompatActivity {
 
         boolean isCustomer = role.equals("Customer");
 
-        // Highlight selected role
         cardCustomer.setBackgroundResource(
                 isCustomer
                         ? R.drawable.bg_role_selected
@@ -115,7 +121,6 @@ public class MainActivity extends AppCompatActivity {
                         : R.drawable.bg_role_selected
         );
 
-        // Update selection labels
         txtCustomerStatus.setText(
                 isCustomer ? "✓ Selected" : "Select"
         );
@@ -124,7 +129,6 @@ public class MainActivity extends AppCompatActivity {
                 isCustomer ? "Select" : "✓ Selected"
         );
 
-        // Enable Continue
         btnContinue.setEnabled(true);
         btnContinue.setAlpha(1.0f);
     }
