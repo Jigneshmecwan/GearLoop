@@ -1,19 +1,217 @@
-<?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    android:background="#F7FAFF"
+    android:fillViewport="true"
+    android:clipToPadding="false">
 
-    <TextView
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:orientation="vertical"
+        android:gravity="center_horizontal"
+        android:paddingStart="22dp"
+        android:paddingEnd="22dp"
+        android:paddingTop="38dp"
+        android:paddingBottom="28dp">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <!-- GearLoop branding -->
+        <ImageView
+            android:id="@+id/imgGearLoopLogo"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:src="@drawable/ic_gearloop_logo"
+            android:contentDescription="GearLoop logo"
+            android:backgroundTint="#0D47A1" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:gravity="center"
+            android:text="GearLoop"
+            android:textSize="34sp"
+            android:textStyle="bold"
+            android:textColor="#0D47A1" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="7dp"
+            android:gravity="center"
+            android:text="RENT • SHARE • GET THINGS DONE"
+            android:textSize="11sp"
+            android:letterSpacing="0.08"
+            android:textColor="#1976D2" />
+
+        <!-- Welcome heading -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="38dp"
+            android:gravity="center"
+            android:text="Your equipment. Your way."
+            android:textColor="#14213D"
+            android:textSize="25sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:gravity="center"
+            android:lineSpacingExtra="4dp"
+            android:text="Rent equipment or share what you own\nwith people nearby."
+            android:textColor="#64748B"
+            android:textSize="14sp" />
+
+        <!-- Role cards -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="270dp"
+            android:layout_marginTop="36dp"
+            android:orientation="horizontal"
+            android:baselineAligned="false">
+
+            <!-- Customer card -->
+            <LinearLayout
+                android:id="@+id/cardCustomer"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:layout_marginEnd="6dp"
+                android:background="@drawable/bg_role_unselected"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:padding="12dp"
+                android:clickable="true"
+                android:focusable="true"
+                android:contentDescription="Rent Equipment">
+
+                <ImageView
+                    android:layout_width="64dp"
+                    android:layout_height="64dp"
+                    android:src="@android:drawable/ic_menu_camera"
+                    android:tint="#1976D2"
+                    android:contentDescription="Camera icon" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="18dp"
+                    android:gravity="center"
+                    android:text="RENT\nEQUIPMENT"
+                    android:textColor="#0D47A1"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:gravity="center"
+                    android:text="Find equipment\nnear you."
+                    android:textColor="#536983"
+                    android:textSize="12sp" />
+
+                <TextView
+                    android:id="@+id/txtCustomerStatus"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="18dp"
+                    android:text="Select"
+                    android:textColor="#1976D2"
+                    android:textStyle="bold"
+                    android:textSize="13sp" />
+
+            </LinearLayout>
+
+            <!-- Owner card -->
+            <LinearLayout
+                android:id="@+id/cardOwner"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:layout_marginStart="6dp"
+                android:background="@drawable/bg_role_unselected"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:padding="12dp"
+                android:clickable="true"
+                android:focusable="true"
+                android:contentDescription="List Equipment">
+
+                <ImageView
+                    android:layout_width="64dp"
+                    android:layout_height="64dp"
+                    android:src="@android:drawable/ic_menu_manage"
+                    android:tint="#1976D2"
+                    android:contentDescription="Tools icon" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="18dp"
+                    android:gravity="center"
+                    android:text="LIST\nEQUIPMENT"
+                    android:textColor="#0D47A1"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:gravity="center"
+                    android:text="Share your gear\nand earn."
+                    android:textColor="#536983"
+                    android:textSize="12sp" />
+
+                <TextView
+                    android:id="@+id/txtOwnerStatus"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="18dp"
+                    android:text="Select"
+                    android:textColor="#1976D2"
+                    android:textStyle="bold"
+                    android:textSize="13sp" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <!-- Continue button -->
+        <Button
+            android:id="@+id/btnContinue"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:layout_marginTop="32dp"
+            android:background="@drawable/bg_continue_button"
+            android:backgroundTint="@null"
+            android:text="Continue"
+            android:textAllCaps="false"
+            android:textColor="#FFFFFF"
+            android:textSize="17sp"
+            android:textStyle="bold"
+            android:enabled="false" />
+
+        <!-- Login link -->
+        <TextView
+            android:id="@+id/txtSignIn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:gravity="center"
+            android:padding="10dp"
+            android:text="Already have an account?  Sign In"
+            android:textColor="#0D47A1"
+            android:textSize="14sp"
+            android:clickable="true"
+            android:focusable="true" />
+
+    </LinearLayout>
+
+</ScrollView>
