@@ -1,0 +1,41 @@
+
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="100dp"
+    android:height="100dp"
+    android:viewportWidth="100"
+    android:viewportHeight="100">
+
+    <!-- Gear outline -->
+    <path
+        android:fillColor="#FFFFFF"
+        android:fillType="evenOdd"
+        android:pathData="
+            M42,5 L58,5 L61,15 L69,18
+            L78,12 L88,22 L82,31
+            L85,39 L95,42 L95,58
+            L85,61 L82,69 L88,78
+            L78,88 L69,82 L61,85
+            L58,95 L42,95 L39,85
+            L31,82 L22,88 L12,78
+            L18,69 L15,61 L5,58
+            L5,42 L15,39 L18,31
+            L12,22 L22,12 L31,18
+            L39,15 Z
+            M50,25
+            A25,25 0,1 0,50 75
+            A25,25 0,1 0,50 25 Z"/>
+
+    <!-- Infinity loop -->
+    <path
+        android:fillColor="@android:color/transparent"
+        android:strokeColor="#43C5FF"
+        android:strokeWidth="8"
+        android:strokeLineCap="round"
+        android:strokeLineJoin="round"
+        android:pathData="
+            M50,50
+            C39,35 24,37 24,50
+            C24,63 39,65 50,50
+            C61,35 76,37 76,50
+            C76,63 61,65 50,50"/>
+</vector>

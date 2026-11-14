@@ -1,0 +1,109 @@
+
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_splash_gradient">
+
+    <!-- Top decorative circle -->
+    <View
+        android:layout_width="310dp"
+        android:layout_height="310dp"
+        android:layout_gravity="top|right"
+        android:layout_marginTop="-145dp"
+        android:layout_marginRight="-145dp"
+        android:background="@drawable/bg_splash_circle" />
+
+    <!-- Bottom decorative circle -->
+    <View
+        android:layout_width="260dp"
+        android:layout_height="260dp"
+        android:layout_gravity="bottom|left"
+        android:layout_marginLeft="-130dp"
+        android:layout_marginBottom="-110dp"
+        android:background="@drawable/bg_splash_circle" />
+
+    <!-- Main splash content -->
+    <LinearLayout
+        android:id="@+id/splashContent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:padding="24dp">
+
+        <FrameLayout
+            android:id="@+id/logoContainer"
+            android:layout_width="132dp"
+            android:layout_height="132dp"
+            android:background="@drawable/bg_logo_glass"
+            android:elevation="12dp">
+
+            <ImageView
+                android:layout_width="92dp"
+                android:layout_height="92dp"
+                android:layout_gravity="center"
+                android:src="@drawable/ic_gearloop_logo"
+                android:contentDescription="GearLoop logo" />
+
+        </FrameLayout>
+
+        <TextView
+            android:id="@+id/txtAppName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="28dp"
+            android:text="GearLoop"
+            android:textColor="#FFFFFF"
+            android:textSize="44sp"
+            android:fontFamily="sans"
+            android:textStyle="bold"
+            android:letterSpacing="-0.035" />
+
+        <TextView
+            android:id="@+id/txtTagline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="9dp"
+            android:text="Rent • Share • Get Things Done"
+            android:textColor="#E3F2FD"
+            android:textSize="16sp"
+            android:gravity="center"
+            android:letterSpacing="0.015" />
+
+        <TextView
+            android:id="@+id/txtDescription"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:text="Your local equipment rental marketplace"
+            android:textColor="#9CC7F7"
+            android:gravity="center"
+            android:textSize="13sp" />
+
+        <ProgressBar
+            android:id="@+id/loadingProgress"
+            style="?android:attr/progressBarStyleHorizontal"
+            android:layout_width="88dp"
+            android:layout_height="4dp"
+            android:layout_marginTop="48dp"
+            android:indeterminate="true"
+            android:indeterminateTint="#68CDFF"
+            android:progressBackgroundTint="#406CA8" />
+
+    </LinearLayout>
+
+    <!-- Bottom tagline -->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:layout_marginBottom="36dp"
+        android:gravity="center"
+        android:text="SHARE MORE. OWN LESS."
+        android:letterSpacing="0.18"
+        android:textColor="#B5D6FF"
+        android:textSize="11sp"
+        android:textStyle="bold" />
+
+</FrameLayout>
